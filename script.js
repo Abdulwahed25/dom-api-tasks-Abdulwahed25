@@ -4,6 +4,11 @@
 All tasks in one file (script.js)
 =======================================
 */
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("t1-msg").innerHTML = "Hello, World!";
+});
+
+
 
 /*  
 =======================================
@@ -11,6 +16,8 @@ TODO1: Welcome Board
 ---------------------------------------
 When the page loads, display a welcome message 
 inside the <p> element with id="t1-msg".
+
+
 
 ✅ Task:
 - Select the element with id "t1-msg".
@@ -20,7 +27,6 @@ inside the <p> element with id="t1-msg".
 document.getElementById("t1-msg").innerHTML = "Hello, World!";
 */
  
-
 /*  
 =======================================
 TODO2: Interaction Corner
