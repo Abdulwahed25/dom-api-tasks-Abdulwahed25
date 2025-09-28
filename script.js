@@ -79,7 +79,17 @@ Use:
 data.content   // the quote text
 data.author    // the author
 */
- 
+document.getElementById("t3-loadQuote").addEventListener("click", function () {
+    fetch("https://api.quotable.io/random")
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("t3-quote").innerHTML = data.content;
+            document.getElementById("t3-author").innerHTML = data.author;
+        })
+        
+        .catch(error => console.error('Error fetching quote:', error));
+}
+);
 
 /*  
 =======================================
@@ -105,3 +115,15 @@ data.main.temp      → temperature (°C)
 data.main.humidity  → humidity (%)
 data.wind.speed     → wind speed (m/s)
 */
+document.getElementById("t4-loadWx").addEventListener("click", function () {
+    const apiKey = "YOUR_API_KEY";
+    const url = "https://api.openweathermap.org/data/2.5/weather?q=Dammam&units=metric&appid=" + apiKey;
+  
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("t4-temp").textContent = data.main.temp + " °C";
+        document.getElementById("t4-hum").textContent = data.main.humidity + " %";
+        document.getElementById("t4-wind").textContent = data.wind.speed + " m/s";
+      });
+  });    
